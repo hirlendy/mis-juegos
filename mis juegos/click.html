@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Rápido</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .boton {
+      padding: 20px 40px;
+      font-size: 24px;
+      background-color: #00ffaa;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .volver {
+      display: block;
+      margin-top: 30px;
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>⏱ Click lo más rápido que puedas</h1>
+  <p id="mensaje">Haz clic en "Iniciar" y luego presiona el botón lo más rápido posible en 10 segundos.</p>
+  <p id="contador"></p>
+  <button class="boton" id="clicker" onclick="contar()" disabled>Click!</button>
+  <br><br>
+  <button class="boton" onclick="iniciar()">Iniciar</button>
+  <a class="volver" href="index.html">← Volver al menú</a>
+
+  <script>
+    let clicks = 0;
+    let tiempo;
+
+    function contar() {
+      clicks++;
+    }
+
+    function iniciar() {
+      clicks = 0;
+      document.getElementById('clicker').disabled = false;
+      document.getElementById('mensaje').textContent = '¡Dale click!';
+      tiempo = setTimeout(() => {
+        document.getElementById('clicker').disabled = true;
+        document.getElementById('mensaje').textContent = `Hiciste ${clicks} clicks en 10 segundos.`;
+      }, 10000);
+    }
+  </script>
+</body>
+</html>

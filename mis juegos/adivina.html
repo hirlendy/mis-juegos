@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el Número</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+
+    .volver {
+      display: block;
+      margin-top: 30px;
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔢 Adivina el número (1-100)</h1>
+  <input type="number" id="intento" placeholder="Tu número">
+  <button onclick="adivinar()">Probar</button>
+  <p id="mensaje"></p>
+  <a class="volver" href="index.html">← Volver al menú</a>
+
+  <script>
+    const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+    function adivinar() {
+      const intento = parseInt(document.getElementById('intento').value);
+      const mensaje = document.getElementById('mensaje');
+
+      if (intento === numeroSecreto) {
+        mensaje.textContent = "🎉 ¡Adivinaste el número!";
+      } else if (intento > numeroSecreto) {
+        mensaje.textContent = "📉 Muy alto. Intenta de nuevo.";
+      } else {
+        mensaje.textContent = "📈 Muy bajo. Intenta de nuevo.";
+      }
+    }
+  </script>
+</body>
+</html>

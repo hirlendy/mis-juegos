@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lanzar Moneda</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+
+    .moneda {
+      font-size: 80px;
+      margin: 30px;
+    }
+
+    .boton {
+      background-color: #00ffaa;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background-color: #00ddaa;
+    }
+
+    .volver {
+      margin-top: 30px;
+      display: block;
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🪙 Lanza la Moneda</h1>
+  <div id="moneda" class="moneda">❓</div>
+  <button class="boton" onclick="lanzar()">Lanzar</button>
+  <a class="volver" href="index.html">← Volver al menú</a>
+
+  <script>
+    function lanzar() {
+      const resultado = Math.random() < 0.5 ? '🪙 Cara' : '🌕 Sello';
+      document.getElementById('moneda').textContent = resultado;
+    }
+  </script>
+</body>
+</html>

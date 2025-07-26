@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuentra el Tesoro</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    table {
+      margin: 0 auto;
+      border-spacing: 5px;
+    }
+
+    td {
+      width: 60px;
+      height: 60px;
+      background-color: #444;
+      cursor: pointer;
+    }
+
+    td.encontrado {
+      background-color: gold;
+    }
+
+    .volver {
+      margin-top: 30px;
+      display: block;
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>💎 Encuentra el Tesoro</h1>
+  <p>Haz clic en una casilla para encontrar el tesoro escondido.</p>
+  <table id="tablero"></table>
+  <a class="volver" href="index.html">← Volver al menú</a>
+
+  <script>
+    const filas = 5, columnas = 5;
+    const tesoroFila = Math.floor(Math.random() * filas);
+    const tesoroCol = Math.floor(Math.random() * columnas);
+
+    const tablero = document.getElementById('tablero');
+    for (let i = 0; i < filas; i++) {
+      const fila = document.createElement('tr');
+      for (let j = 0; j < columnas; j++) {
+        const celda = document.createElement('td');
+        celda.onclick = () => {
+          if (i === tesoroFila && j === tesoroCol) {
+            celda.classList.add('encontrado');
+            celda.textContent = '💎';
+            alert("¡Encontraste el tesoro!");
+          } else {
+            celda.style.backgroundColor = '#222';
+            celda.onclick = null;
+          }
+        };
+        fila.appendChild(celda);
+      }
+      tablero.appendChild(fila);
+    }
+  </script>
+</body>
+</html>

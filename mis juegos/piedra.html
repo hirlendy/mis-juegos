@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piedra Papel o Tijera</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+    .opciones button {
+      font-size: 30px;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 22px;
+    }
+    .volver {
+      margin-top: 40px;
+      display: block;
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>✊📄✂️ Piedra, Papel o Tijera</h1>
+  <div class="opciones">
+    <button onclick="jugar('piedra')">✊</button>
+    <button onclick="jugar('papel')">📄</button>
+    <button onclick="jugar('tijera')">✂️</button>
+  </div>
+  <p id="resultado"></p>
+  <a class="volver" href="index.html">← Volver al menú</a>
+
+  <script>
+    function jugar(jugador) {
+      const opciones = ['piedra', 'papel', 'tijera'];
+      const cpu = opciones[Math.floor(Math.random() * 3)];
+      let resultado = '';
+
+      if (jugador === cpu) {
+        resultado = `Empate. Ambos eligieron ${jugador}.`;
+      } else if (
+        (jugador === 'piedra' && cpu === 'tijera') ||
+        (jugador === 'papel' && cpu === 'piedra') ||
+        (jugador === 'tijera' && cpu === 'papel')
+      ) {
+        resultado = `Ganaste. ${jugador} vence a ${cpu}.`;
+      } else {
+        resultado = `Perdiste. ${cpu} vence a ${jugador}.`;
+      }
+
+      document.getElementById('resultado').textContent = resultado;
+    }
+  </script>
+</body>
+</html>

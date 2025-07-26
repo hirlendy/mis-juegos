@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lanzamiento de Dados</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+
+    .dado {
+      font-size: 80px;
+      margin: 20px;
+    }
+
+    .boton {
+      background-color: #00ffaa;
+      color: black;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background-color: #00ddaa;
+    }
+
+    .volver {
+      margin-top: 40px;
+      display: block;
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎲 Lanza los Dados</h1>
+  <div id="dado1" class="dado">⚀</div>
+  <div id="dado2" class="dado">⚀</div>
+  <button class="boton" onclick="lanzarDados()">Lanzar</button>
+  <a class="volver" href="index.html">← Volver al menú</a>
+
+  <script>
+    function lanzarDados() {
+      const dados = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+      const d1 = Math.floor(Math.random() * 6);
+      const d2 = Math.floor(Math.random() * 6);
+      document.getElementById("dado1").textContent = dados[d1];
+      document.getElementById("dado2").textContent = dados[d2];
+    }
+  </script>
+</body>
+</html>
